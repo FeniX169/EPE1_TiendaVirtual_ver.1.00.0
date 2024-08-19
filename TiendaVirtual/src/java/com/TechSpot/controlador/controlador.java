@@ -34,15 +34,16 @@ public class controlador extends HttpServlet {
             throws ServletException, IOException {
         
         String accion=request.getParameter("accion");
-        productos=pdao.listar();
+        productos = pdao.listar();
         
         switch (accion){
             
             case "Comprar":
+                totalPagar=0.0;
                 int idp=Integer.parseInt(request.getParameter("id"));
-                p=pdao.listarId(idp);
-                item=item+1;
-                Carrito car=new Carrito();
+                p = pdao.listarId(idp);
+                item = item+1;
+                Carrito car = new Carrito();
                 car.setItem(item);
                 car.setIdproducto(p.getId());
                 car.setNombres(p.getNombres());
@@ -51,9 +52,15 @@ public class controlador extends HttpServlet {
                 car.setCantidad(cantidad);
                 car.setSubTotal(cantidad*p.getPrecio());
                 listaCarrito.add(car);
+                for (int i = 0; i < listaCarrito.size(); i++){
+                    totalPagar=totalPagar+listaCarrito.get(i).getSubTotal();
+                }
+                request.setAttribute("totalPagar", totalPagar);
+                request.setAttribute("carrito", listaCarrito);
                 request.setAttribute("contador", listaCarrito.size());
+                request.getRequestDispatcher("carrito.jsp").forward(request, response);
                 
-            
+            break;
             
             case "AgregarCarrito":
                 idp=Integer.parseInt(request.getParameter("id"));
@@ -73,8 +80,23 @@ public class controlador extends HttpServlet {
                 
                 break;
                 
+                case "Delete":
+                    int idproducto=Integer.parseInt(request.getParameter("idp"));
+                    for (int i = 0; i < listaCarrito.size(); i++) {
+                        if(listaCarrito.get(i).getIdproducto()==idproducto){
+                            listaCarrito.remove(i);
+                        }
+                        
+                    }
+                    
+                    
+                    
+                    
+                break;
+                
+                
             case "Carrito":
-                totalPagar=0;
+                totalPagar = 0.0;
                 request.setAttribute("carrito", listaCarrito);
                 for (int i = 0; i < listaCarrito.size(); i++){
                     totalPagar=totalPagar+listaCarrito.get(i).getSubTotal();
@@ -118,7 +140,11 @@ public class controlador extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+             processRequest(request, response);
+                    
+
+       
+        
     }
 
    
