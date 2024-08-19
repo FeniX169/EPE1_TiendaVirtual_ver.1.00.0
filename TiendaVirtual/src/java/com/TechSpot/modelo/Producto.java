@@ -5,32 +5,33 @@
  */
 package com.TechSpot.modelo;
 
-import java.io.InputStream;
-
 /**
  *
  * @author Claudio Duhart
  */
+import java.io.InputStream;
+
 public class Producto {
     int id;
-    String nombres;
+    String nombres;    
+    String imagen;
     InputStream foto;
-    String Descripcion;
-    double Precio;
-    int Stock;
-    
-    public Producto(){
-        
+    String descripcion;
+    double precio;
+    int stock;
+  
+
+    public Producto() {
     }
-    
-    public Producto (int id, String nombres, InputStream foto, String Descripcion, double Precio, int Stock ){
+
+    public Producto(int id, String nombres, String imagen, InputStream foto, String descripcion, double precio, int stock) {
         this.id = id;
+        this.nombres = nombres;
+        this.imagen = imagen;
         this.foto = foto;
-        this.Descripcion = Descripcion;
-        this.Precio = Precio;
-        this.Stock = Stock;
-        
-        
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.stock = stock;
     }
 
     public int getId() {
@@ -49,6 +50,14 @@ public class Producto {
         this.nombres = nombres;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
     public InputStream getFoto() {
         return foto;
     }
@@ -58,30 +67,28 @@ public class Producto {
     }
 
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
 
-    public void setDescripcion(String Descripcion) {
-        this.Descripcion = Descripcion;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public double getPrecio() {
-        return Precio;
+        return precio;
     }
 
-    public void setPrecio(double Precio) {
-        this.Precio = Precio;
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
     public int getStock() {
-        return Stock;
+        return stock;
     }
 
-    public void setStock(int Stock) {
-        this.Stock = Stock;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
-    
-    
-    
+
     
 }

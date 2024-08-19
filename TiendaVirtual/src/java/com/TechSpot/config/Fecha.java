@@ -32,6 +32,4 @@ public class Fecha {
         fecha = sdf.format(calendar.getTime());
         return fecha;
     }
-   
-
-}
+   }

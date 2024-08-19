@@ -1,11 +1,19 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.TechSpot.modelo;
 
-
+/**
+ *
+ * @author Claudio Duhart
+ */
 public class Carrito {
     int item;
-    int idproducto;
+    int idProducto;
     String nombres;
+    String imagen;
     String descripcion;
     double precioCompra;
     int cantidad;
@@ -14,10 +22,11 @@ public class Carrito {
     public Carrito() {
     }
 
-    public Carrito(int item, int idproducto, String nombres, String descripcion, double precioCompra, int cantidad, double subTotal) {
+    public Carrito(int item, int idProducto, String nombres, String imagen, String descripcion, double precioCompra, int cantidad, double subTotal) {
         this.item = item;
-        this.idproducto = idproducto;
+        this.idProducto = idProducto;
         this.nombres = nombres;
+        this.imagen = imagen;
         this.descripcion = descripcion;
         this.precioCompra = precioCompra;
         this.cantidad = cantidad;
@@ -32,12 +41,12 @@ public class Carrito {
         this.item = item;
     }
 
-    public int getIdproducto() {
-        return idproducto;
+    public int getIdProducto() {
+        return idProducto;
     }
 
-    public void setIdproducto(int idproducto) {
-        this.idproducto = idproducto;
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
 
     public String getNombres() {
@@ -46,6 +55,14 @@ public class Carrito {
 
     public void setNombres(String nombres) {
         this.nombres = nombres;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public String getDescripcion() {
@@ -79,6 +96,7 @@ public class Carrito {
     public void setSubTotal(double subTotal) {
         this.subTotal = subTotal;
     }
-            
+
+    
     
 }

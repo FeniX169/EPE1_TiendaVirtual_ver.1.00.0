@@ -1,0 +1,25 @@
+img{
+    transition:transform 1s;
+}
+img:hover{
+    transform : scale(1.5);
+}
+.btn-danger{
+    margin-left: 15px;
+    transition: transform 0.5s;
+}
+.btn2{    
+    transition: transform 0.5s;
+}
+.btn:hover{
+    transform: scale(1.2);
+}/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17-ago-2024, 21:11:19
+    Author     : Claudio Duhart
+*/
+
